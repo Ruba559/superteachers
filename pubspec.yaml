@@ -34,15 +34,16 @@ dependencies:
   get: ^4.6.5
   jiffy: ^6.1.0
   http: ^0.13.5
-  shared_preferences: ^2.0.15
   flutter_native_splash: ^2.3.7
-
 
 
   carousel_slider: ^4.2.1
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  shared_preferences: ^2.2.2
+  pin_code_fields: ^8.0.1
+ 
 
 flutter_native_splash:
   color: "#370364"

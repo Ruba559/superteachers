@@ -18,49 +18,44 @@ class LoginScreen extends StatelessWidget {
         backgroundColor: AppColors.primary,
         body: SafeArea(
             child: Padding(
-                padding: EdgeInsets.all(30),
-                child:
-               
-                  
-                    GetBuilder<LoginController>(
-                    builder: (controller) => Form(
-                               key: controller.formstate,
-                            child: ListView(children: [
-                         Image.asset('assets/images/logo.png',
-                                height: 200,
-                                //   fit: BoxFit.fill,
-                              ),
-                              SizedBox(height: 50,),
-                          LabelForm(text: 'البريد الالكتروني'),
-                          InputForm(
-                            valid: (val) {
-                              return validInput(val!, 9, 11, "phone");
-                            },
-                            mycontroller: controller.phone,
-                           
-                          ),
-                            LabelForm(text: 'كلمة المرور'),
-                          InputForm(
-                            valid: (val) {
-                              return validInput(val!, 3 , 20, "password");
-                            },
-                            mycontroller: controller.phone,
-                           
-                          ),
-                          ButtonForm(
-                              text: "متابعة",
-                              color: AppColors.secondary,
-                              onPressed:()=> {
-                                //controller.login();
-                              }),
-                          ButtonForm(
-                              text: "أنشئ حساباً جديداً",
-                              color: AppColors.primary2,
-                              onPressed:() => {
-                                controller.getRegister()
-                              }),
-                        ])))
-                ,)
-               ));
+          padding: EdgeInsets.all(30),
+          child: GetBuilder<LoginController>(
+              builder: (controller) => Form(
+                  key: controller.formstate,
+                  child: ListView(children: [
+                    Image.asset(
+                      'assets/images/logo.png',
+                      height: 200,
+                      //   fit: BoxFit.fill,
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    LabelForm(text: 'البريد الالكتروني'),
+                    InputForm(
+                      valid: (val) {
+                        return validInput(val!, 9, 11, "phone");
+                      },
+                      mycontroller: controller.phone,
+                    ),
+                    LabelForm(text: 'كلمة المرور'),
+                    InputForm(
+                      valid: (val) {
+                        return validInput(val!, 3, 20, "password");
+                      },
+                      mycontroller: controller.phone,
+                    ),
+                    ButtonForm(
+                        text: "متابعة",
+                        color: AppColors.secondary,
+                        onPressed: () => {
+                              //controller.login();
+                            }),
+                    ButtonForm(
+                        text: "أنشئ حساباً جديداً",
+                        color: AppColors.primary2,
+                        onPressed: () => {controller.getRegister()}),
+                  ]))),
+        )));
   }
 }

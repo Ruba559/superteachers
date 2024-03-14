@@ -19,10 +19,10 @@ class AppTextStyle {
   );
 
   static const medium = TextStyle(
-    color: AppColors.black,
+    color:  AppColors.white,
     fontFamily: 'Hacen Tunisia',
     height: 1,
-    fontSize: 21.0,
+    fontSize: 20.0,
   );
 
   static const body = TextStyle(

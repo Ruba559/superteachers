@@ -18,60 +18,51 @@ class RegisterScreen extends StatelessWidget {
         backgroundColor: AppColors.primary,
         body: SafeArea(
             child: Padding(
-                padding: EdgeInsets.all(30),
-                child:
-               
-                  
-                    GetBuilder<LoginController>(
-                    builder: (controller) => Form(
-                               key: controller.formstate,
-                            child: ListView(children: [
-                         Image.asset('assets/images/logo.png',
-                                //   fit: BoxFit.fill,
-                                height: 200,
-
-                              ),
-                          LabelForm(text: 'الاسم'),
-                          InputForm(
-                            valid: (val) {
-                              return validInput(val!, 9, 11, "phone");
-                            },
-                            mycontroller: controller.phone,
-                           
-                          ),
-                           LabelForm(text: 'البريد الالكتروني'),
-                          InputForm(
-                            valid: (val) {
-                              return validInput(val!, 9, 11, "phone");
-                            },
-                            mycontroller: controller.phone,
-                           
-                          ),
-                            LabelForm(text: 'كلمة المرور'),
-                          InputForm(
-                            valid: (val) {
-                              return validInput(val!, 3 , 20, "password");
-                            },
-                            mycontroller: controller.phone,
-                           
-                          ),
-                            LabelForm(text: ' تاكيد كلمة المرور' ),
-                          InputForm(
-                            valid: (val) {
-                              return validInput(val!, 3 , 20, "password");
-                            },
-                            mycontroller: controller.phone,
-                           
-                          ),
-                          ButtonForm(
-                              text: "التالي",
-                              color: AppColors.secondary,
-                              onPressed: () {
-                                //controller.login();
-                              }),
-                         
-                        ])))
-                ,)
-               ));
+          padding: EdgeInsets.all(30),
+          child: GetBuilder<LoginController>(
+              builder: (controller) => Form(
+                  key: controller.formstate,
+                  child: ListView(children: [
+                    Image.asset(
+                      'assets/images/logo.png',
+                      //   fit: BoxFit.fill,
+                      height: 200,
+                    ),
+                    LabelForm(text: 'الاسم'),
+                    InputForm(
+                      valid: (val) {
+                        return validInput(val!, 9, 11, "phone");
+                      },
+                      mycontroller: controller.phone,
+                    ),
+                    LabelForm(text: 'البريد الالكتروني'),
+                    InputForm(
+                      valid: (val) {
+                        return validInput(val!, 9, 11, "phone");
+                      },
+                      mycontroller: controller.phone,
+                    ),
+                    LabelForm(text: 'كلمة المرور'),
+                    InputForm(
+                      valid: (val) {
+                        return validInput(val!, 3, 20, "password");
+                      },
+                      mycontroller: controller.phone,
+                    ),
+                    LabelForm(text: ' تاكيد كلمة المرور'),
+                    InputForm(
+                      valid: (val) {
+                        return validInput(val!, 3, 20, "password");
+                      },
+                      mycontroller: controller.phone,
+                    ),
+                    ButtonForm(
+                        text: "التالي",
+                        color: AppColors.secondary,
+                        onPressed: () {
+                          controller.getVerifyCode();
+                        }),
+                  ]))),
+        )));
   }
 }

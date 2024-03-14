@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'Constants/pages.dart';
+import 'Services/serviceVar.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
- 
+  await initialServices();
 
 }
 
