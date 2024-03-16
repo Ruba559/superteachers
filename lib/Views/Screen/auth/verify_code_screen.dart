@@ -4,7 +4,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:superteachers/Constants/app_style.dart';
 import '../../../Constants/app_color.dart';
 import '../../../Constants/app_text_style.dart';
-import '../../../Controllers/LoginController.dart';
+import '../../../Controllers/AuthController.dart';
 import '../../Widgets/button_form.dart';
 
 class VerifyCodeScreen extends StatelessWidget {
@@ -12,7 +12,8 @@ class VerifyCodeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LoginController controller = Get.put(LoginController());
+    final AuthController controller = Get.find();
+
     return Scaffold(
       backgroundColor: AppColors.primary,
       body: Container(
@@ -33,34 +34,35 @@ class VerifyCodeScreen extends StatelessWidget {
                     'لقد أرسلنا لك رمزاً مكوناً من 5 أرقام قم بإدخاله في المربعات لتأكيد إنشاء الحساب',
                     textAlign: TextAlign.center,
                     style: AppTextStyle.body,
-                  )), 
-                  PinCodeTextField(
-      appContext: context,
-      length: 6,
-      obscureText: false,
-      animationType: AnimationType.fade,
-      pinTheme: PinTheme(
-        shape: PinCodeFieldShape.box,
-        borderRadius: radius10,
-        inactiveFillColor: AppColors.white,
-        activeColor: AppColors.secondary,
-        selectedFillColor: AppColors.white,
-        selectedColor: AppColors.secondary,
-       inactiveColor: AppColors.white,
-       activeFillColor: AppColors.secondary,
-      ),
-      animationDuration: const Duration(milliseconds: 300),
-     
-      enableActiveFill: true,
-      autoDismissKeyboard: true,
-      keyboardType: TextInputType.number,
-     // controller: controller,
-     // onCompleted: onCompleted,
-    ),
-           ButtonForm(
+                  )),
+              PinCodeTextField(
+                appContext: context,
+                length: 6,
+                obscureText: false,
+                animationType: AnimationType.fade,
+                pinTheme: PinTheme(
+                  shape: PinCodeFieldShape.box,
+                  borderRadius: radius10,
+                  inactiveFillColor: AppColors.white,
+                  activeColor: AppColors.secondary,
+                  selectedFillColor: AppColors.white,
+                  selectedColor: AppColors.secondary,
+                  inactiveColor: AppColors.white,
+                  activeFillColor: AppColors.secondary,
+                ),
+                animationDuration: const Duration(milliseconds: 300),
+                enableActiveFill: true,
+                autoDismissKeyboard: true,
+                keyboardType: TextInputType.number,
+                controller: controller.pinCode,
+                onCompleted: (value) {
+                  controller.pinCode = value as TextEditingController;
+                },
+              ),
+              ButtonForm(
                   text: "تأكيد",
                   color: AppColors.secondary,
-                  onPressed: () => {controller.getChoosePlan()}),
+                  onPressed: () => {controller.checkVerifyCode()}),
             ],
           )),
     );

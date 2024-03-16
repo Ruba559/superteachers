@@ -5,7 +5,7 @@ import 'package:superteachers/Constants/app_text_style.dart';
 import 'package:superteachers/Views/Widgets/label_form.dart';
 
 import '../../../Constants/app_color.dart';
-import '../../../Controllers/LoginController.dart';
+import '../../../Controllers/AuthController.dart';
 import '../../../Functions/valid_input.dart';
 import '../../Widgets/button_form.dart';
 import '../../Widgets/input_form.dart';
@@ -15,13 +15,12 @@ class ChoosePlanScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(LoginController());
     return Scaffold(
         backgroundColor: AppColors.primary,
         body: SafeArea(
           child: Padding(
               padding: EdgeInsets.all(5),
-              child: GetBuilder<LoginController>(
+              child: GetBuilder<AuthController>(
                   builder: (controller) => Column(children: [
                         Image.asset(
                           'assets/images/logo.png',
@@ -50,7 +49,7 @@ class ChoosePlanScreen extends StatelessWidget {
                                         border: Border.all(
                                             color: AppColors.secondary,
                                             width: 2),
-                                        borderRadius: BorderRadius.circular(20),
+                                        borderRadius: radius20,
                                       ),
                                       margin: EdgeInsets.symmetric(
                                           vertical: 6, horizontal: 6),
@@ -116,11 +115,10 @@ class ChoosePlanScreen extends StatelessWidget {
                                     );
                                   },
                                 ))),
-                      ButtonForm(
-                              text: "متابعة",
-                              color: AppColors.secondary,
-                              onPressed: () => controller.getPaymentMethod()),
-                        
+                        ButtonForm(
+                            text: "متابعة",
+                            color: AppColors.secondary,
+                            onPressed: () => controller.getPaymentMethod()),
                       ]))),
         ));
   }

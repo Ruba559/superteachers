@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:superteachers/Views/Widgets/label_form.dart';
 
 import '../../../Constants/app_color.dart';
+import '../../../Controllers/AuthController.dart';
 import '../../../Controllers/LoginController.dart';
 import '../../../Functions/valid_input.dart';
 import '../../Widgets/button_form.dart';
@@ -34,22 +35,22 @@ class LoginScreen extends StatelessWidget {
                     LabelForm(text: 'البريد الالكتروني'),
                     InputForm(
                       valid: (val) {
-                        return validInput(val!, 9, 11, "phone");
+                        return validInput(val!, 2, 50, "email");
                       },
-                      mycontroller: controller.phone,
+                      mycontroller: controller.email,
                     ),
                     LabelForm(text: 'كلمة المرور'),
                     InputForm(
                       valid: (val) {
                         return validInput(val!, 3, 20, "password");
                       },
-                      mycontroller: controller.phone,
+                      mycontroller: controller.password,
                     ),
                     ButtonForm(
                         text: "متابعة",
                         color: AppColors.secondary,
                         onPressed: () => {
-                              //controller.login();
+                              controller.login()
                             }),
                     ButtonForm(
                         text: "أنشئ حساباً جديداً",

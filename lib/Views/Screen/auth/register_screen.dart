@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:superteachers/Views/Widgets/label_form.dart';
 
 import '../../../Constants/app_color.dart';
-import '../../../Controllers/LoginController.dart';
+import '../../../Controllers/AuthController.dart';
 import '../../../Functions/valid_input.dart';
 import '../../Widgets/button_form.dart';
 import '../../Widgets/input_form.dart';
@@ -13,13 +13,13 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(LoginController());
+    Get.put(AuthController());
     return Scaffold(
         backgroundColor: AppColors.primary,
         body: SafeArea(
             child: Padding(
           padding: EdgeInsets.all(30),
-          child: GetBuilder<LoginController>(
+          child: GetBuilder<AuthController>(
               builder: (controller) => Form(
                   key: controller.formstate,
                   child: ListView(children: [
@@ -31,30 +31,30 @@ class RegisterScreen extends StatelessWidget {
                     LabelForm(text: 'الاسم'),
                     InputForm(
                       valid: (val) {
-                        return validInput(val!, 9, 11, "phone");
+                        return validInput(val!, 2, 11, "username");
                       },
-                      mycontroller: controller.phone,
+                      mycontroller: controller.name,
                     ),
                     LabelForm(text: 'البريد الالكتروني'),
                     InputForm(
                       valid: (val) {
-                        return validInput(val!, 9, 11, "phone");
+                        return validInput(val!, 2 , 80 , "email");
                       },
-                      mycontroller: controller.phone,
+                      mycontroller: controller.email,
                     ),
                     LabelForm(text: 'كلمة المرور'),
                     InputForm(
                       valid: (val) {
                         return validInput(val!, 3, 20, "password");
                       },
-                      mycontroller: controller.phone,
+                      mycontroller: controller.password,
                     ),
                     LabelForm(text: ' تاكيد كلمة المرور'),
                     InputForm(
                       valid: (val) {
                         return validInput(val!, 3, 20, "password");
                       },
-                      mycontroller: controller.phone,
+                      mycontroller: controller.confirmPassword,
                     ),
                     ButtonForm(
                         text: "التالي",

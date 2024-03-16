@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'Constants/pages.dart';
 import 'Services/serviceVar.dart';
 
-Future<void> main() async {
-  runApp(const MyApp());
+void main() async {
+    WidgetsFlutterBinding.ensureInitialized();
   await initialServices();
-
+   await GetStorage.init();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
+  static int bottomSelectedItem = 0;
   @override
   Widget build(BuildContext context) {
+   
     return GetMaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       getPages: getPages,
-      //  home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }

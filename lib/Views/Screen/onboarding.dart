@@ -22,7 +22,7 @@ class OnboardingScreen extends StatelessWidget {
             Expanded(
                 child: PageView.builder(
                     scrollDirection: Axis.horizontal,
-                     physics: const NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     controller: controller.pageController,
                     onPageChanged: (val) {
                       controller.onPageChanged(val);
@@ -78,7 +78,7 @@ class OnboardingScreen extends StatelessWidget {
                                 height: 230,
                                 //   fit: BoxFit.fill,
                               ),
-                              const SizedBox(height: 60),
+                              const SizedBox(height: 50),
                               Container(
                                 padding: EdgeInsets.symmetric(horizontal: 40),
                                 child: Text(onboardingList[i].title!,
@@ -94,14 +94,12 @@ class OnboardingScreen extends StatelessWidget {
                                     textAlign: TextAlign.center,
                                     style: AppTextStyle.body,
                                   )),
-                              const SizedBox(height: 80),
+                              const SizedBox(height: 70),
                               Align(
                                 alignment: Alignment.topRight,
                                 child: MaterialButton(
                                   shape: RoundedRectangleBorder(
                                       borderRadius: radius50),
-                                  // padding:
-                                  //     const EdgeInsets.symmetric(horizontal: -6),
                                   onPressed: () => controller.next(),
                                   color: AppColors.secondary,
                                   textColor: AppColors.white,
