@@ -14,9 +14,11 @@ class PaymentMethodScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
         backgroundColor: AppColors.primary,
-        body: SafeArea(
+        body:  SafeArea(
             child: Padding(
                 padding: EdgeInsets.all(30),
                 child: ListView(children: [
@@ -33,6 +35,6 @@ class PaymentMethodScreen extends StatelessWidget {
                         textAlign: TextAlign.start,
                         style: AppTextStyle.body,
                       )),
-                ]))));
+                ])))));
   }
 }

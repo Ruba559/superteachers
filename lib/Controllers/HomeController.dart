@@ -16,9 +16,7 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
-  getClasses() {
-    Get.toNamed(AppRoute.classes);
-  }
+
 
   getSemesters(){
      Get.toNamed(AppRoute.semesters);

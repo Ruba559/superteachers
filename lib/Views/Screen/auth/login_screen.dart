@@ -15,11 +15,13 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(LoginController());
-    return Scaffold(
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
         backgroundColor: AppColors.primary,
         body: SafeArea(
             child: Padding(
-          padding: EdgeInsets.all(30),
+          padding: EdgeInsets.all(25),
           child: GetBuilder<LoginController>(
               builder: (controller) => Form(
                   key: controller.formstate,
@@ -57,6 +59,6 @@ class LoginScreen extends StatelessWidget {
                         color: AppColors.primary2,
                         onPressed: () => {controller.getRegister()}),
                   ]))),
-        )));
+        ))));
   }
 }

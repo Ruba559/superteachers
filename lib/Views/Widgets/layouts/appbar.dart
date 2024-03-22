@@ -1,48 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:superteachers/Constants/app_text_style.dart';
 
 import '../../../Constants/app_color.dart';
 import '../../../Constants/app_style.dart';
 
-class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
-  AppAppBar({super.key});
-
-  @override
-  Size get preferredSize => const Size.fromHeight(65);
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
+PreferredSize  AppAppBar (){
+ 
+    return PreferredSize(
+    preferredSize: Size(Get.width, 60),
+    child: AppBar(
+     
       backgroundColor: AppColors.primary,
       elevation: 1,
       centerTitle: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25)),
       ),
-      title: Container(
+      title:  Padding(
+ padding: EdgeInsets.all(7),
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      
         children: [
-          Text('SUPER TEACHERS', style: AppTextStyle.title),
+        Container(  child: Text('SUPER TEACHERS', style: AppTextStyle.title),)  ,
           Text('Apply Worksheets', style: AppTextStyle.medium)
         ],
       )),
       actions: [
         Container(
+          margin: EdgeInsets.all(5),
             decoration: BoxDecoration(
               border: Border.all(color: AppColors.secondary, width: 1),
               borderRadius: radius50,
             ),
+            
             child: ClipRRect(
               borderRadius: BorderRadius.circular(50.0),
               child: Image.asset(
                 'assets/images/placeholder/user.png',
-                height: 10.0,
-                width: 50.0,
-                fit: BoxFit.cover,
+                height: 40.0,
+                width: 40.0,
+               fit: BoxFit.contain,
               ),
             ))
       ],
-    );
-  }
+    ));
+  
 }

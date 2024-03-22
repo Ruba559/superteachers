@@ -34,7 +34,6 @@ dependencies:
   get: ^4.6.5
   jiffy: ^6.1.0
   http: ^0.13.5
-  flutter_native_splash: ^2.3.7
 
 
   carousel_slider: ^4.2.1
@@ -47,11 +46,6 @@ dependencies:
   font_awesome_flutter: ^10.7.0
   flutter_launcher_icons: ^0.13.1
  
-
-flutter_native_splash:
-  color: "#370364"
-  image: "assets/images/logo.png"
-
 
 dev_dependencies:
   flutter_test:
@@ -100,7 +94,12 @@ flutter:
   fonts:
     - family: Cairo
       fonts:
-        - asset: font/Cairo-Bold.ttf
+        - asset: assets/font/Cairo-Black.ttf
+        - asset: assets/font/Cairo-Bold.ttf
+        - asset: assets/font/Cairo-ExtraLight.ttf
+        - asset: assets/font/Cairo-Light.ttf
+        - asset: assets/font/Cairo-Regular.ttf
+        - asset: assets/font/Cairo-SemiBold.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

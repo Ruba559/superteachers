@@ -15,7 +15,9 @@ class ChoosePlanScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
         backgroundColor: AppColors.primary,
         body: SafeArea(
           child: Padding(
@@ -60,55 +62,74 @@ class ChoosePlanScreen extends StatelessWidget {
                                         children: [
                                           Container(
                                               width: 80,
+                                              height: 100,
                                               padding: EdgeInsets.symmetric(
-                                                  horizontal: 8, vertical: 25),
+                                                  horizontal: 4, vertical: 20),
                                               decoration: BoxDecoration(
                                                   color: AppColors.primary2,
                                                   borderRadius: radius20),
                                               child: Text(
                                                 'الخطة المجانية',
-                                                style: AppTextStyle.medium,
+                                                style: AppTextStyle.body
+                                                    .copyWith(
+                                                        fontWeight:
+                                                            FontWeight.bold),
                                               )),
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            // mainAxisSize: MainAxisSize.max,
-                                            //mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Container(
-                                                  child: Text(
-                                                'المدة :7 ايام',
-                                                style:
-                                                    AppTextStyle.body.copyWith(
-                                                  color: AppColors.black,
-                                                ),
-                                              )),
-                                              Text(
-                                                  'عدد الملفات اليومية :  6 ملفات',
-                                                  style: AppTextStyle.body
-                                                      .copyWith(
-                                                    color: AppColors.black,
-                                                  )),
-                                              Text('عدد الشهادات  :  2  شهادات',
-                                                  style: AppTextStyle.body
-                                                      .copyWith(
-                                                    color: AppColors.black,
-                                                  )),
-                                            ],
-                                          ),
                                           Container(
-                                              width: 70,
+                                              width: 180,
                                               padding: EdgeInsets.symmetric(
-                                                  horizontal: 8, vertical: 30),
+                                                  horizontal: 6),
+                                              height: 100,
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: [
+                                                  Text(
+                                                    'المدة :7 ايام',
+                                                    style: AppTextStyle.small
+                                                        .copyWith(
+                                                      color: AppColors.black,
+                                                    ),
+                                                    overflow: TextOverflow.fade,
+                                                  ),
+                                                  Text(
+                                                    'عدد الملفات اليومية : 7 ملفات',
+                                                    style: AppTextStyle.small
+                                                        .copyWith(
+                                                      color: AppColors.black,
+                                                    ),
+                                                    overflow: TextOverflow.fade,
+                                                  ),
+                                                  Text(
+                                                    'عدد الشهادات  :  2  شهادات',
+                                                    style: AppTextStyle.small
+                                                        .copyWith(
+                                                      color: AppColors.black,
+                                                    ),
+                                                    overflow: TextOverflow.fade,
+                                                  ),
+                                                ],
+                                              )),
+                                          Container(
+                                              width: 50,
+                                              height: 100,
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 4, vertical: 10),
                                               decoration: BoxDecoration(
                                                   border: Border.all(
                                                       color: AppColors.grey),
                                                   borderRadius: radius20),
                                               child: Text(
-                                                '1000 ل س',
+                                                '10998 ل س',
                                                 style: AppTextStyle.body
                                                     .copyWith(
-                                                        color: AppColors.black),
+                                                        color: AppColors.black,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                overflow: TextOverflow.fade,
                                               )),
                                         ],
                                       ),
@@ -120,6 +141,6 @@ class ChoosePlanScreen extends StatelessWidget {
                             color: AppColors.secondary,
                             onPressed: () => controller.getPaymentMethod()),
                       ]))),
-        ));
+        )));
   }
 }

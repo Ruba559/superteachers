@@ -5,3 +5,10 @@ const login = "login";
 const register = "register";
 
 const setcodeverfiy = 'setCodeVerfiy';
+
+const classes = 'classes';
+const subjects = 'subjects';
+
+const worksheets = 'worksheets';
+
+const semesters = 'semesters';

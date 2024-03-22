@@ -8,7 +8,6 @@ import '../Constants/routes.dart';
 import '../DataAccesslayer/Models/authcode.dart';
 import '../DataAccesslayer/Models/user.dart';
 import '../DataAccesslayer/Repository/UserRepo.dart';
-import '../Services/serviceVar.dart';
 
 class AuthController extends GetxController {
   late TextEditingController name;
@@ -16,7 +15,7 @@ class AuthController extends GetxController {
   late TextEditingController password;
   late TextEditingController confirmPassword;
 
-   late TextEditingController pinCode; 
+  late TextEditingController pinCode = TextEditingController();
 
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
@@ -24,22 +23,21 @@ class AuthController extends GetxController {
 
   // static final _box = GetStorage();
 
-  ServiceVar myServices = Get.find();
 
   UserRepo userRepo = UserRepo();
 
   late User user;
+  late bool completed;
 
   void onInit() {
     confirmPassword = TextEditingController();
     name = TextEditingController();
     email = TextEditingController();
     password = TextEditingController();
-    pinCode = TextEditingController();
+    // pinCode = TextEditingController();
+    completed = false;
     super.onInit();
   }
-
-
 
   getRegister() {
     Get.toNamed(AppRoute.register);
@@ -66,16 +64,19 @@ class AuthController extends GetxController {
   }
 
   Future checkVerifyCode() async {
-     print('hi');
-    print(pinCode);
-   
-    //print(authCode.obs);
-
+    print('hi');
+    print(pinCode.text);
+    
     Get.toNamed(AppRoute.choosePlan);
+  }
+
+  isCompleted(value) {
+    completed = true;
+    pinCode.text = value;
+    update();
   }
 
   getPaymentMethod() {
     Get.toNamed(AppRoute.paymentMethod);
   }
 }
-

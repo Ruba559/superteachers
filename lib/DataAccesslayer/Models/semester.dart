@@ -1,30 +1,27 @@
 import 'dart:convert';
 
-class User {
+class Semester {
   final int id;
   final String name;
-  final String email;
   final String createdAt;
  
-  User({
+  Semester({
     required this.id,
     required this.name,
-    required this.email,
     required this.createdAt,
   });
 
-  factory User.fromMap(Map<String, dynamic> map) {
-    return User(
+  factory Semester.fromMap(Map<String, dynamic> map) {
+    return Semester(
         id: map['id'] as int,
         name: map['name'] ?? "",
-        email: map['email'] ?? "",
         createdAt: map['created_at'] ?? "",
         );
   }
   
 
-  factory User.fromJson(String source) =>
-      User.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Semester.fromJson(String source) =>
+      Semester.fromMap(json.decode(source) as Map<String, dynamic>);
 
   get user => null;
 
@@ -33,12 +30,9 @@ class User {
     return {
       'id': id,
       'name': name,
-      'email': email,
       'created_at' : createdAt,
     
     };
   }
-
-  toJson() {}
 
 }

@@ -7,6 +7,7 @@ import '../../Controllers/HomeController.dart';
 import '../Widgets/choices_box.dart';
 import '../Widgets/layouts/app-buttom-navbar.dart';
 import '../Widgets/layouts/appbar.dart';
+import '../Widgets/layouts/appdrawar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,9 +15,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeController controller = Get.put(HomeController());
-    return Scaffold(
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
       appBar: AppAppBar(),
-      drawer: Drawer(),
+      drawer: AppDrawer(),
       bottomNavigationBar: AppButtomNavBar(),
       body: Container(
         padding: const EdgeInsets.all(20),
@@ -29,12 +32,12 @@ class HomeScreen extends StatelessWidget {
                 ChoicesBox(
                   text: 'إنشاء شهادة',
                   image: 'assets/images/certificate.png',
-                  onPressed: () => controller.getClasses(),
+                  onPressed: () => null,
                 ),
                 ChoicesBox(
                   text: 'إنشاء ورقة عمل',
                   image: 'assets/images/worksheet.png',
-                  onPressed: () => controller.getClasses(),
+                  onPressed: () => controller.getSemesters(),
                 )
               ],
             ),
@@ -67,6 +70,6 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ));
   }
 }

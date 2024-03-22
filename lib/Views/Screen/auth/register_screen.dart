@@ -14,18 +14,19 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(AuthController());
-    return Scaffold(
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
         backgroundColor: AppColors.primary,
         body: SafeArea(
             child: Padding(
-          padding: EdgeInsets.all(30),
+          padding: EdgeInsets.all(25),
           child: GetBuilder<AuthController>(
               builder: (controller) => Form(
                   key: controller.formstate,
                   child: ListView(children: [
                     Image.asset(
                       'assets/images/logo.png',
-                      //   fit: BoxFit.fill,
                       height: 200,
                     ),
                     LabelForm(text: 'الاسم'),
@@ -63,6 +64,6 @@ class RegisterScreen extends StatelessWidget {
                           controller.getVerifyCode();
                         }),
                   ]))),
-        )));
+        ))));
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:superteachers/Constants/app_text_style.dart';
 import '../../../Constants/app_color.dart';
 
 class AppAppBarCreateWorksheet extends StatelessWidget
@@ -17,7 +18,7 @@ class AppAppBarCreateWorksheet extends StatelessWidget
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25)),
       ),
-      title: Container(child: Text('إنشاء ورقة عمل')),
+      title: Container(child: Text('إنشاء ورقة عمل' , style: AppTextStyle.medium.copyWith(fontWeight: FontWeight.bold),)),
       actions: [
         InkWell(
           onTap: onPressed,
