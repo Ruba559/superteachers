@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:superteachers/Constants/app_text_style.dart';
 import '../../../Constants/app_color.dart';
 import '../../../Controllers/CreateWorksheetController.dart';
-import '../../../Controllers/HomeController.dart';
 import '../../Widgets/button_form.dart';
 import '../../Widgets/class_box.dart';
-import '../../Widgets/create_worksheet_title .dart';
+import '../../Widgets/create_worksheet_title.dart';
 import '../../Widgets/layouts/appbar_create_worksheet.dart';
 import '../../Widgets/layouts/appdrawar.dart';
 
@@ -34,27 +32,40 @@ class SemestersScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   CreateWeorksheetTitle(
-                                    text:  'اختر الفصل الدراسي'
-                                  ),
-                                  ListView.builder(
+                                      text: 'اختر الفصل الدراسي'),
+                                Obx(() {
+                                          return controller.isLoading.value
+                                              ? CircularProgressIndicator(
+                                                  color: AppColors.primary,
+                                                  strokeWidth: 3,
+                                                  
+                                                )
+                                              :   ListView.builder(
                                       shrinkWrap: true,
                                       itemCount: controller.semesters.length,
                                       itemBuilder:
                                           (BuildContext context, int index) {
                                         return ClassBox(
-                                          width: 310,
-                                          text:
-                                              controller.semesters[index].name,
-                                          bordercolor: controller.semester ==
-                                                  controller.semesters[index].id
-                                              ? AppColors.secondary
-                                              : AppColors.grey,
-                                          onPressed: () => {
-                                            controller.setSemester(
-                                                controller.semesters[index].id)
-                                          },
-                                        );
-                                      }),
+                                                  width: 310,
+                                                  text: controller
+                                                      .semesters[index].name,
+                                                  bordercolor: controller
+                                                              .semester ==
+                                                          controller
+                                                              .semesters[index]
+                                                              .id
+                                                      ? AppColors.secondary
+                                                      : AppColors.grey,
+                                                  onPressed: () => {
+                                                    controller.setSemester(
+                                                        controller
+                                                            .semesters[index]
+                                                            .id)
+                                                  },
+                                                );
+                                      
+                                      });
+                                }),
                                 ],
                               ),
                               ButtonForm(

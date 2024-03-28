@@ -106,7 +106,6 @@ class OnboardingScreen extends StatelessWidget {
                                             Icons.chevron_left,
                                             size: 60,
                                             color: AppColors.white,
-                                           
                                           ),
                                         ),
                                       ))

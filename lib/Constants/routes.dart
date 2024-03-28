@@ -12,4 +12,7 @@ class AppRoute {
   static const String subjects = '/subjects';
   static const String worksheets = '/worksheets';
   static const String infoWorksheet = '/infoWorksheet';
+  static const String worksheetCreated = '/worksheetCreated';
+  static const String accountCreated = '/accountCreated';
+  
 }

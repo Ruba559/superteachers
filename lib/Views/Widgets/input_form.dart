@@ -2,19 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:superteachers/Constants/app_style.dart';
 
 class InputForm extends StatelessWidget {
-  final String? hinttext ;
+  final String? hinttext;
   final String? labeltext;
   // final IconData iconData;
+  final bool passwordText;
   final String? Function(String?) valid;
   final TextEditingController? mycontroller;
 
-  const InputForm(
-      {super.key,
-      this.hinttext,
-      this.labeltext,
-      this.mycontroller,
-      required this.valid,
-      TextStyle? labelStyle,});
+  const InputForm({
+    super.key,
+    this.hinttext,
+    this.labeltext,
+    this.mycontroller,
+    required this.valid,
+    TextStyle? labelStyle, this.passwordText = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class InputForm extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 8),
       child: TextFormField(
         validator: valid,
+        obscureText: passwordText,
         controller: mycontroller,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.text,

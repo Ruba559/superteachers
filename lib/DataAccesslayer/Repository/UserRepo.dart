@@ -1,3 +1,4 @@
+
 import 'dart:convert';
 
 import '../Clients/UserClient.dart';
@@ -7,14 +8,15 @@ import '../Models/user.dart';
 class UserRepo {
   UserClient client = UserClient();
 
+  Future<dynamic> register(name, email, password, package_id) async {
+    //  if (await client.Register(name, email, password , package_id) != '') {
 
-  Future<bool> register(String phone) async {
-    if (await client.register(phone) == true) {
-      print('truetrue');
-      return true;
-    } else {
-      return false;
-    }
+    var response = await client.Register(name, email, password, package_id);
+   
+       return User.fromJson(response);
+    // } else {
+    //   return '';
+    // }
   }
 
   Future<dynamic> setCodeVerfiy(email) async {
@@ -29,7 +31,7 @@ class UserRepo {
 
   Future<dynamic> login(email, password) async {
     if (await client.Login(email, password) != '') {
-      var response =  await client.Login(email, password);
+      var response = await client.Login(email, password);
       return User.fromJson(response);
     } else {
       return '';

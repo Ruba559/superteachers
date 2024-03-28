@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 
-validInput(String val, int min, int max, String type) {
+validInput(String val, int min, int max, String type , String? password ) {
+
   if (type == "username") {
     if (!GetUtils.isUsername(val)) {
       return "not valid username";
@@ -11,6 +12,13 @@ validInput(String val, int min, int max, String type) {
       return "not valid email";
     }
   }
+
+   if (type == "confirmPassword") {
+    if (val != password) {
+      return "Not Match";
+    }
+  }
+
 
   if (type == "phone") {
     if (!GetUtils.isPhoneNumber(val)) {

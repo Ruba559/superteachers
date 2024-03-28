@@ -9,8 +9,18 @@ class WorksheetClient {
 
   WorksheetClient();
 
-  Future<dynamic> getWorksheet() async {
-    var response = await client.get(Uri.parse(baseUrl + worksheets));
+  Future<dynamic> getWorksheet(semester , classe , subject) async {
+    var response = await client.get(Uri.parse(baseUrl + worksheets + "/$semester" + "/$classe" + "/$subject"));
+
+    if (response.statusCode == 200) {
+      return response.body;
+    } else {
+      return '';
+    }
+  }
+
+   Future<dynamic> getWorksheetsByUser() async {
+    var response = await client.get(Uri.parse(baseUrl + worksheetsByUser ));
 
     if (response.statusCode == 200) {
       return response.body;

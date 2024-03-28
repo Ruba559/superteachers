@@ -9,31 +9,31 @@ class UserClient {
 
   UserClient();
 
-
-Future<bool?> register(phone) async {
-    var url = Uri.parse(baseUrl + login);
+  Future<dynamic> Register(name, email, password, package_id) async {
+   
+    var url = Uri.parse(baseUrl + register);
 
     var response = await http.post(
       url,
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(<String, String>{
-        'phone': phone,
+      body: jsonEncode(<String, dynamic>{
+        'name': name,
+        'email': email,
+        'password': password,
+        'package_id': package_id
       }),
     );
-
-    if (response.statusCode == 201) {
-     
-      return true;
+  
+    if (response.statusCode == 200) { 
+      return response.body;
     } else {
-      return false;
+      return '';
     }
   }
 
-
-
-Future<dynamic> Login(email , password) async {
+  Future<dynamic> Login(email, password) async {
     var url = Uri.parse(baseUrl + login);
 
     var response = await http.post(
@@ -48,15 +48,13 @@ Future<dynamic> Login(email , password) async {
     );
 
     if (response.statusCode == 200) {
-     
       return response.body;
     } else {
       return '';
     }
   }
 
-
- Future<dynamic> setCodeVerfiy(email) async {
+  Future<dynamic> setCodeVerfiy(email) async {
     var url = Uri.parse(baseUrl + setcodeverfiy);
 
     var response = await http.post(
@@ -69,19 +67,18 @@ Future<dynamic> Login(email , password) async {
       }),
     );
 
-     print(response.body);
+    print(response.body);
     if (response.statusCode == 200) {
       return response.body;
     } else {
       return null;
     }
- }
-
+  }
 
   //   Future<dynamic>getUser(user_id) async {
   //   var response = await client.get(Uri.parse(baseUrl + userById + "/$user_id"));
-   
-  //   if (response.statusCode == 200) { 
+
+  //   if (response.statusCode == 200) {
   //     return response.body;
   //   } else {
   //     return Responses.empty;
@@ -104,11 +101,10 @@ Future<dynamic> Login(email , password) async {
 //     );
 
 //     if (response.statusCode == 201) {
-  
+
 //       return response.body;
 //     } else {
 //       return null;
 //     }
 //   }
-
 }

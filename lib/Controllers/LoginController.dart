@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:superteachers/main.dart';
 import '../Constants/routes.dart';
 import '../DataAccesslayer/Clients/BoxStorage.dart';
 import '../DataAccesslayer/Models/user.dart';
@@ -13,9 +14,11 @@ class LoginController extends GetxController {
 
   BoxStorage boxStorage = BoxStorage();
 
-
   UserRepo userRepo = UserRepo();
+  late User user;
 
+  var logging = false.obs;
+  
   void onInit() {
     email = TextEditingController();
     password = TextEditingController();
@@ -24,29 +27,25 @@ class LoginController extends GetxController {
 
   login() async {
     if (formstate.currentState!.validate()) {
+      logging.value = true;
       if (await userRepo.login(email.text, password.text) != '') {
         late User user;
         user = await userRepo.login(email.text, password.text);
 
-     //   _box.write('user', user);
-
-       // Userdata.user = _box.read('user');
- await boxStorage.setUser(user);
+        await boxStorage.setUser(user);
+        MyApp.user = user;
+        logging.value = false;
         Get.offAllNamed(AppRoute.home);
       }
     }
   }
 
-  logout() async {
-
-     await boxStorage.removeUser();
-    
-    Get.offAllNamed(AppRoute.onboarding);
-  }
-
   getRegister() {
     Get.toNamed(AppRoute.register);
   }
+
+  getUser() async {
+   
+    user = await boxStorage.getUser();
+  }
 }
-
-

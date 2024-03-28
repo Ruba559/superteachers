@@ -12,3 +12,6 @@ const subjects = 'subjects';
 const worksheets = 'worksheets';
 
 const semesters = 'semesters';
+
+const worksheetsByUser = 'worksheetsByUser';
+const packages = 'packages';

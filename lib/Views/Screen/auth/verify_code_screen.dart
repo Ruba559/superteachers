@@ -33,11 +33,13 @@ class VerifyCodeScreen extends StatelessWidget {
                           width: double.infinity,
                           alignment: Alignment.center,
                           child: const Text(
-                            'لقد أرسلنا لك رمزاً مكوناً من 5 أرقام قم بإدخاله في المربعات لتأكيد إنشاء الحساب',
+                            'لقد أرسلنا لك رمزاً مكوناً من 6 أرقام قم بإدخاله في المربعات لتأكيد إنشاء الحساب',
                             textAlign: TextAlign.center,
                             style: AppTextStyle.body,
                           )),
                       PinCodeTextField(
+                        cursorColor: AppColors.secondary,
+                        textStyle: TextStyle(color: AppColors.white),
                         appContext: context,
                         length: 6,
                         obscureText: false,
@@ -51,6 +53,7 @@ class VerifyCodeScreen extends StatelessWidget {
                           selectedColor: AppColors.secondary,
                           inactiveColor: AppColors.white,
                           activeFillColor: AppColors.secondary,
+                     
                         ),
                         animationDuration: const Duration(milliseconds: 300),
                         enableActiveFill: true,

@@ -4,7 +4,7 @@ import '../../../Constants/app_color.dart';
 import '../../../Controllers/CreateWorksheetController.dart';
 import '../../Widgets/button_form.dart';
 import '../../Widgets/class_box.dart';
-import '../../Widgets/create_worksheet_title .dart';
+import '../../Widgets/create_worksheet_title.dart';
 import '../../Widgets/layouts/appbar_create_worksheet.dart';
 import '../../Widgets/layouts/appdrawar.dart';
 
@@ -20,7 +20,7 @@ class ClassesScreen extends StatelessWidget {
             appBar: AppAppBarCreateWorksheet(
               onPressed: () => {controller.getSemesters()},
             ),
-           drawer: AppDrawer(),
+            drawer: AppDrawer(),
             //  bottomNavigationBar: AppButtomNavBar(),
             body: Container(
                 padding: const EdgeInsets.all(20),
@@ -28,29 +28,33 @@ class ClassesScreen extends StatelessWidget {
                     builder: (controller) => Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                             CreateWeorksheetTitle(
-                                    text:  'اختر الصف'
-                                  ),
-                            Expanded(
-                              child: GridView.count(
-                                crossAxisCount: 2,
-                                children: List.generate(
-                                    controller.classes.length, (index) {
-                                  return ClassBox(
-                                    width: 145,
-                                    text: controller.classes[index].name,
-                                    bordercolor: controller.classe ==
-                                            controller.classes[index].id
-                                        ? AppColors.secondary
-                                        : AppColors.grey,
-                                    onPressed: () => {
-                                      controller.setClasse(
-                                          controller.classes[index].id)
-                                    },
-                                  );
-                                }),
-                              ),
-                            ),
+                            CreateWeorksheetTitle(text: 'اختر الصف'),
+                            Obx(() {
+                              return controller.isLoading.value
+                                  ? CircularProgressIndicator(
+                                      color: AppColors.primary,
+                                      strokeWidth: 3,
+                                    )
+                                  : Expanded(
+                                      child: GridView.count(
+                                      crossAxisCount: 2,
+                                      children: List.generate(
+                                          controller.classes.length, (index) {
+                                        return ClassBox(
+                                          width: 145,
+                                          text: controller.classes[index].name,
+                                          bordercolor: controller.classe ==
+                                                  controller.classes[index].id
+                                              ? AppColors.secondary
+                                              : AppColors.grey,
+                                          onPressed: () => {
+                                            controller.setClasse(
+                                                controller.classes[index].id)
+                                          },
+                                        );
+                                      }),
+                                    ));
+                            }),
                             ButtonForm(
                                 text: "متابعة",
                                 color: controller.classe != 0

@@ -38,6 +38,6 @@ class AppTextStyle {
     color: AppColors.black,
     fontFamily: 'Cairo',
     height: 1,
-    fontSize: 15.0,
+    fontSize: 10.0,
   );
 }
