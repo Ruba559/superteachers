@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:superteachers/Constants/routes.dart';
 import '../../../Constants/app_color.dart';
-import '../../../Controllers/CreateWorksheetController.dart';
 import '../../../Controllers/EduSubjectsController.dart';
 import '../../Widgets/button_form.dart';
 import '../../Widgets/class_box.dart';
@@ -12,21 +12,20 @@ import '../shimmer/class_shimmer.dart';
 
 class ClassesEduScreen extends StatelessWidget {
    ClassesEduScreen({super.key});
-   EduSubjectsController controller = Get.put(EduSubjectsController());
+  final EduSubjectsController controller = Get.put(EduSubjectsController());
   @override
   Widget build(BuildContext context) {
  
     return Scaffold(
             appBar: AppAppBarCreateWorksheet(
               text: "educational_subjects".tr,
-              onPressed: () => {controller.getHome()},
+              onPressed: () => {Get.offAllNamed(AppRoute.home)},
             ),
             drawer: AppDrawer(),
             //  bottomNavigationBar: AppButtomNavBar(),
             body: Container(
                 padding: const EdgeInsets.all(20),
-                child: GetBuilder<EduSubjectsController>(
-                    builder: (controller) => Column(
+                child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CreateWeorksheetTitle(text: "select_class".tr),
@@ -65,6 +64,6 @@ class ClassesEduScreen extends StatelessWidget {
                                           : null
                                     }),
                           ],
-                        ))));
+                        )));
   }
 }

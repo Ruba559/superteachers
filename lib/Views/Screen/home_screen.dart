@@ -10,7 +10,7 @@ import '../Widgets/layouts/appdrawar.dart';
 
 class HomeScreen extends StatelessWidget {
    HomeScreen({super.key});
-  HomeController controller = Get.put(HomeController());
+ final HomeController controller = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
   
@@ -69,7 +69,7 @@ class HomeScreen extends StatelessWidget {
                         ChoicesBox(
                           text: "files".tr,
                           image: 'assets/images/files.png',
-                          onPressed: () => controller.getFiles()
+                          onPressed: () => Get.toNamed(AppRoute.files)
                         ),
                       ],
                     )

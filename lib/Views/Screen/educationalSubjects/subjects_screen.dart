@@ -11,7 +11,7 @@ import '../shimmer/subject_shimmer.dart';
 
 class SubjectsEduScreen extends StatelessWidget {
    SubjectsEduScreen({super.key});
-  EduSubjectsController controller = Get.find();
+ final EduSubjectsController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -23,8 +23,7 @@ class SubjectsEduScreen extends StatelessWidget {
             //  bottomNavigationBar: AppButtomNavBar(),
             body: Container(
                 padding: const EdgeInsets.all(20),
-                child: GetBuilder<EduSubjectsController>(
-                    builder: (controller) => Column(
+                child:  Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CreateWeorksheetTitle(text: "select_subject".tr),
@@ -69,6 +68,6 @@ class SubjectsEduScreen extends StatelessWidget {
                                           : null
                                     }),
                           ],
-                        ))));
+                        )));
   }
 }

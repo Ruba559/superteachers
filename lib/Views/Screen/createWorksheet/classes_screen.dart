@@ -24,8 +24,7 @@ class ClassesScreen extends StatelessWidget {
             //  bottomNavigationBar: AppButtomNavBar(),
             body: Container(
                 padding: const EdgeInsets.all(20),
-                child: GetBuilder<CreateWorksheetController>(
-                    builder: (controller) => Column(
+                child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CreateWeorksheetTitle(text: "select_class".tr),
@@ -64,6 +63,6 @@ class ClassesScreen extends StatelessWidget {
                                           : null
                                     }),
                           ],
-                        ))));
+                        )));
   }
 }

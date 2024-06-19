@@ -69,12 +69,7 @@ class EduSubjectsController extends GetxController {
     update();
   }
 
-  getHome() {
-    semester = 0;
-    classe = 0;
-    subject = 0;
-    Get.toNamed(AppRoute.home);
-  }
+
 
   getSubjects() async {
     isLoading.value = true;
@@ -84,8 +79,10 @@ class EduSubjectsController extends GetxController {
   }
 
   getEduSubjectsFiles() async {
+     isLoading.value = true;
     educationalSubjects = await educationalSubjectRepo.getEducationalSubjects(
         subject, semester, classe);
+         isLoading.value = false;
     Get.toNamed(AppRoute.eduSubjectsFiles);
   }
 }

@@ -109,8 +109,5 @@ class HomeController extends GetxController {
   }
 
  
-  getFiles()
-  {
-     Get.toNamed(AppRoute.files);
-  }
+  
 }

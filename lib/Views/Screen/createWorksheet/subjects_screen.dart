@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../Constants/app_color.dart';
-import '../../../Constants/app_style.dart';
-import '../../../Constants/app_text_style.dart';
 import '../../../Controllers/CreateWorksheetController.dart';
 import '../../Widgets/button_form.dart';
-import '../../Widgets/class_box.dart';
 import '../../Widgets/create_worksheet_title.dart';
 import '../../Widgets/layouts/appbar_create_worksheet.dart';
 import '../../Widgets/layouts/appdrawar.dart';
@@ -27,8 +24,7 @@ class SubjectsScreen extends StatelessWidget {
             //  bottomNavigationBar: AppButtomNavBar(),
             body: Container(
                 padding: const EdgeInsets.all(20),
-                child: GetBuilder<CreateWorksheetController>(
-                    builder: (controller) => Column(
+                child:  Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CreateWeorksheetTitle(text: "select_subject".tr),
@@ -73,6 +69,6 @@ class SubjectsScreen extends StatelessWidget {
                                           : null
                                     }),
                           ],
-                        ))));
+                        )));
   }
 }

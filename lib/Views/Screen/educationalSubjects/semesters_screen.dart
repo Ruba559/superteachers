@@ -11,7 +11,7 @@ import '../shimmer/semesters_shimmer.dart';
 
 class SemestersEduScreen extends StatelessWidget {
    SemestersEduScreen({super.key});
- EduSubjectsController controller = Get.find();
+final EduSubjectsController controller = Get.find();
  
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,7 @@ class SemestersEduScreen extends StatelessWidget {
         //  bottomNavigationBar: AppButtomNavBar(),
         body: Container(
             padding: const EdgeInsets.all(20),
-            child: GetBuilder<EduSubjectsController>(
-                builder: (controller) => Column(
+            child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
@@ -76,6 +75,6 @@ class SemestersEduScreen extends StatelessWidget {
                                         ? controller.getEduSubjectsFiles()
                                         : null
                                   }),
-                        ]))));
+                        ])));
   }
 }
