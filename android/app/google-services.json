@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "121704939322",
+    "project_id": "superteachers-60557",
+    "storage_bucket": "superteachers-60557.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:121704939322:android:ed993917ab95c442d41a03",
+        "android_client_info": {
+          "package_name": "com.example.superteachers"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZHuZ_v-O_wGGjyZOg4i8BlDt3O9pUut8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
