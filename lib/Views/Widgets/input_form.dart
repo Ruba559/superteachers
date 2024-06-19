@@ -9,7 +9,9 @@ class InputForm extends StatelessWidget {
   final String? Function(String?) valid;
   final TextEditingController? mycontroller;
   final int? isTextarea;
-    final void Function()? onTap;
+  final void Function()? onTap;
+
+  final void Function(String?)? onChanged;
 
   const InputForm({
     super.key,
@@ -18,7 +20,10 @@ class InputForm extends StatelessWidget {
     this.mycontroller,
     required this.valid,
     TextStyle? labelStyle,
-    this.passwordText = false, this.isTextarea = 1, this.onTap,
+    this.passwordText = false,
+    this.isTextarea = 1,
+    this.onTap,
+    this.onChanged,
   });
 
   @override
@@ -26,9 +31,9 @@ class InputForm extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       child: TextFormField(
-        
-        onTap :  onTap,
-        maxLines: isTextarea != 1 ? isTextarea : 1 ,
+        onChanged: onChanged,
+        onTap: onTap,
+        maxLines: isTextarea != 1 ? isTextarea : 1,
         validator: valid,
         obscureText: passwordText,
         controller: mycontroller,
@@ -39,8 +44,9 @@ class InputForm extends StatelessWidget {
             filled: true,
             // hintStyle: const TextStyle(fontSize: 22 , color: Colors.white),
             fillColor: Colors.white,
-            contentPadding: isTextarea != 1  ? EdgeInsets.symmetric(horizontal: 10 , vertical: 10) :
-             EdgeInsets.symmetric(horizontal:5),
+            contentPadding: isTextarea != 1
+                ? EdgeInsets.symmetric(horizontal: 10, vertical: 10)
+                : EdgeInsets.symmetric(horizontal: 5),
 
             // suffixIcon: Icon(iconData),
             border: OutlineInputBorder(borderRadius: radius10)),

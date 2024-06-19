@@ -13,7 +13,7 @@ import '../../Widgets/layouts/appdrawar.dart';
 
 class WorksheetsScreen extends StatelessWidget {
    WorksheetsScreen({super.key});
-CreateWorksheetController controller = Get.find();
+final CreateWorksheetController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     
@@ -27,12 +27,12 @@ CreateWorksheetController controller = Get.find();
         //  bottomNavigationBar: AppButtomNavBar(),
         body: Container(
             padding: const EdgeInsets.all(20),
-            child: GetBuilder<CreateWorksheetController>(
-                builder: (controller) => Column(
+            child: Column(
                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CreateWeorksheetTitle(text:"select_worksheet".tr),
                         InputForm(
+                            onChanged: (value) => controller.filterWorksheets(value),
                           valid: (val) {
                             return validInput(val!, 3, 20, "text",  false , null);
                           },
@@ -45,9 +45,12 @@ CreateWorksheetController controller = Get.find();
                                   color: AppColors.primary,
                                   strokeWidth: 3,
                                 )
-                              : Flexible(
+                              : GetBuilder<CreateWorksheetController>(
+                builder: (controller) =>  Flexible(
                                   child: GridView.count(
                                     crossAxisCount: 2,
+                                    crossAxisSpacing: 20,
+                                      mainAxisSpacing: 20,
                                     children: List.generate(
                                         controller.worksheets.length, (index) {
                                       return InkWell(
@@ -114,7 +117,7 @@ CreateWorksheetController controller = Get.find();
                                       );
                                     }),
                                   ),
-                                );
+                                ));
                         }),
                         ButtonForm(
                             text: "continue".tr,
@@ -127,6 +130,6 @@ CreateWorksheetController controller = Get.find();
                                       : null
                                 })
                       ],
-                    ))));
+                    )));
   }
 }

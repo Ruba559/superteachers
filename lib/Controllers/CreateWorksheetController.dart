@@ -31,6 +31,7 @@ class CreateWorksheetController extends GetxController {
   List<Class> classes = [];
   List<Subject> subjects = [];
   List<Worksheet> worksheets = [];
+  List<Worksheet> worksheetsMain = [];
   List<Semester> semesters = [];
   List<UserFile> worksheetsByUser = [];
 
@@ -52,7 +53,6 @@ class CreateWorksheetController extends GetxController {
 
     super.onInit();
   }
-
 
   getClasses() async {
     isLoading.value = true;
@@ -98,16 +98,16 @@ class CreateWorksheetController extends GetxController {
 
   getWorksheets() async {
     isLoading.value = true;
-    worksheets = await worksheetRepo.getWorksheet(
+    worksheetsMain = await worksheetRepo.getWorksheet(
         semester.toString(), classe.toString(), subject.toString());
-
+    worksheets = worksheetsMain;
+    search.text = '';
     Get.toNamed(AppRoute.worksheets);
     isLoading.value = false;
   }
 
   getInfoWorksheet() async {
     isLoading.value = true;
-    print('hi');
     worksheetsByUser =
         await worksheetRepo.getWorksheetsByUser(MyApp.user?.id, worksheet);
 
@@ -117,7 +117,6 @@ class CreateWorksheetController extends GetxController {
   }
 
   onDropDownItemSelected(newSelectedBank) async {
-    print('hi');
     choose = newSelectedBank;
     title.text = choose!.title;
     print(choose);
@@ -140,5 +139,16 @@ class CreateWorksheetController extends GetxController {
       isLoading.value = false;
       Get.offNamed(AppRoute.worksheetCreated);
     }
+  }
+
+  filterWorksheets(value) async {
+    worksheets = worksheetsMain
+        .where((item) => item.title
+            .trim()
+            .toLowerCase()
+            .contains(search.text.trim().toLowerCase()))
+        .toList();
+
+    update();
   }
 }
