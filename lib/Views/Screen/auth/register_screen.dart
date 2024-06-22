@@ -9,11 +9,11 @@ import '../../Widgets/button_form.dart';
 import '../../Widgets/input_form.dart';
 
 class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
-
+   RegisterScreen({super.key});
+ final AuthController controller = Get.put(AuthController());
   @override
   Widget build(BuildContext context) {
-    Get.put(AuthController());
+   
     return  Scaffold(
            resizeToAvoidBottomInset: true,
             backgroundColor: AppColors.primary,

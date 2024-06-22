@@ -30,7 +30,7 @@ final UserController userController = Get.find();
             accountEmail: Text(MyApp.user != null
                 ? MyApp.user!.email
                 : 'test@superteachers.agency'),
-            currentAccountPicture: MyApp.user != null
+            currentAccountPicture: MyApp.user!.image != ''
                 ? CircleAvatar(backgroundImage: NetworkImage(MyApp.user!.image))
                 : CircleAvatar(
                     backgroundImage: AssetImage('assets/images/logo.png')),

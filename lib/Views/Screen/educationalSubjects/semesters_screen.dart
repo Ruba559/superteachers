@@ -24,7 +24,9 @@ final EduSubjectsController controller = Get.find();
         //  bottomNavigationBar: AppButtomNavBar(),
         body: Container(
             padding: const EdgeInsets.all(20),
-            child: Column(
+            child:   GetBuilder(
+                                  init: controller,
+                                  builder: (_) => Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
@@ -35,9 +37,7 @@ final EduSubjectsController controller = Get.find();
                               // ? CircularProgressIndicator(
                               //     color: AppColors.primary,
                               //     strokeWidth: 3,
-                              GetBuilder(
-                                  init: controller,
-                                  builder: (_) => controller.isLoading.value
+                             controller.isLoading.value
                                       ? SemestersShimmer()
                                       : ListView.builder(
                                           shrinkWrap: true,
@@ -62,7 +62,7 @@ final EduSubjectsController controller = Get.find();
                                                         .semesters[index].id)
                                               },
                                             );
-                                          }))
+                                          })
                             ],
                           ),
                           ButtonForm(
@@ -75,6 +75,6 @@ final EduSubjectsController controller = Get.find();
                                         ? controller.getEduSubjectsFiles()
                                         : null
                                   }),
-                        ])));
+                        ]))));
   }
 }

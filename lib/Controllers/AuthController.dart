@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:superteachers/Controllers/UserController.dart';
 import '../Constants/routes.dart';
 import '../DataAccesslayer/Clients/BoxStorage.dart';
 import '../DataAccesslayer/Models/authcode.dart';
@@ -21,13 +22,13 @@ class AuthController extends GetxController {
 
   AuthCode? authCode;
 
-  BoxStorage boxStorage = BoxStorage();
 
   UserRepo userRepo = UserRepo();
   PackageRepo packageRepo = PackageRepo();
 
   List<Package> packages = [];
 
+ final UserController userController = Get.find();
    var logging = false.obs;
 
   late User user;
@@ -88,7 +89,7 @@ class AuthController extends GetxController {
         logging.value = true;
       user = await userRepo.register(name.text, email.text, password.text, plan);
     
-      await boxStorage.setUser(user);
+        await userController.saveAuthState(user);
        MyApp.user = user;
         logging.value = false;
       Get.offAllNamed(AppRoute.accountCreated);

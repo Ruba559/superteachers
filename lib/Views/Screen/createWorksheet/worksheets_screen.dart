@@ -27,7 +27,8 @@ final CreateWorksheetController controller = Get.find();
         //  bottomNavigationBar: AppButtomNavBar(),
         body: Container(
             padding: const EdgeInsets.all(20),
-            child: Column(
+            child: GetBuilder<CreateWorksheetController>(
+                builder: (controller) =>  Column(
                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CreateWeorksheetTitle(text:"select_worksheet".tr),
@@ -45,8 +46,7 @@ final CreateWorksheetController controller = Get.find();
                                   color: AppColors.primary,
                                   strokeWidth: 3,
                                 )
-                              : GetBuilder<CreateWorksheetController>(
-                builder: (controller) =>  Flexible(
+                              :  Flexible(
                                   child: GridView.count(
                                     crossAxisCount: 2,
                                     crossAxisSpacing: 20,
@@ -117,7 +117,7 @@ final CreateWorksheetController controller = Get.find();
                                       );
                                     }),
                                   ),
-                                ));
+                                );
                         }),
                         ButtonForm(
                             text: "continue".tr,
@@ -130,6 +130,6 @@ final CreateWorksheetController controller = Get.find();
                                       : null
                                 })
                       ],
-                    )));
+                    ))));
   }
 }

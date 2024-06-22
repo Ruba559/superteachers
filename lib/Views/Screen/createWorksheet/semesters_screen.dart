@@ -11,21 +11,24 @@ import '../../Widgets/layouts/appdrawar.dart';
 import '../shimmer/semesters_shimmer.dart';
 
 class SemestersScreen extends StatelessWidget {
-   SemestersScreen({super.key});
- final CreateWorksheetController controller = Get.put(CreateWorksheetController());
- 
+  SemestersScreen({super.key});
+  final CreateWorksheetController controller =
+      Get.put(CreateWorksheetController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppAppBarCreateWorksheet(
-            text: "create_worksheet".tr,
+          text: "create_worksheet".tr,
           onPressed: () => {Get.offAllNamed(AppRoute.home)},
         ),
         drawer: AppDrawer(),
         //  bottomNavigationBar: AppButtomNavBar(),
         body: Container(
             padding: const EdgeInsets.all(20),
-            child: Column(
+            child: GetBuilder(
+                init: controller,
+                builder: (_) => Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
@@ -36,34 +39,27 @@ class SemestersScreen extends StatelessWidget {
                               // ? CircularProgressIndicator(
                               //     color: AppColors.primary,
                               //     strokeWidth: 3,
-                              GetBuilder(
-                                  init: controller,
-                                  builder: (_) => controller.isLoading.value
-                                      ? SemestersShimmer()
-                                      : ListView.builder(
-                                          shrinkWrap: true,
-                                          itemCount:
-                                              controller.semesters.length,
-                                          itemBuilder: (BuildContext context,
-                                              int index) {
-                                            return ClassBox(
-                                              width: 310,
-                                              text: controller
-                                                  .semesters[index].name,
-                                              bordercolor:
-                                                  controller.semester ==
-                                                          controller
-                                                              .semesters[index]
-                                                              .id
-                                                      ? AppColors.secondary
-                                                      : AppColors.grey,
-                                              onPressed: () => {
-                                                controller.setSemester(
-                                                    controller
-                                                        .semesters[index].id)
-                                              },
-                                            );
-                                          }))
+                              controller.isLoading.value
+                                  ? SemestersShimmer()
+                                  : ListView.builder(
+                                      shrinkWrap: true,
+                                      itemCount: controller.semesters.length,
+                                      itemBuilder:
+                                          (BuildContext context, int index) {
+                                        return ClassBox(
+                                          width: 310,
+                                          text:
+                                              controller.semesters[index].name,
+                                          bordercolor: controller.semester ==
+                                                  controller.semesters[index].id
+                                              ? AppColors.secondary
+                                              : AppColors.grey,
+                                          onPressed: () => {
+                                            controller.setSemester(
+                                                controller.semesters[index].id)
+                                          },
+                                        );
+                                      })
                             ],
                           ),
                           ButtonForm(
@@ -76,6 +72,6 @@ class SemestersScreen extends StatelessWidget {
                                         ? controller.getClasses()
                                         : null
                                   }),
-                        ])));
+                        ]))));
   }
 }

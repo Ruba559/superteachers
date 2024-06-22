@@ -43,7 +43,7 @@ PreferredSize AppAppBar() {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(50.0),
-                child: MyApp.user != null
+                child: MyApp.user!.image != ''
                     ? Image.network(
                         MyApp.user!.image,
                         height: 30.0,

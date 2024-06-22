@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:superteachers/Constants/app_color.dart';
 import 'package:superteachers/Constants/app_text_style.dart';
+import 'package:superteachers/Constants/routes.dart';
 import 'package:superteachers/Controllers/AuthController.dart';
 import 'package:superteachers/Views/Widgets/button_form.dart';
 import '../../Widgets/layouts/appdrawar.dart';
@@ -11,7 +12,7 @@ class AccountCreatedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AuthController controller = Get.find();
+  
     return Scaffold(
            backgroundColor: AppColors.primary,
            
@@ -48,7 +49,7 @@ class AccountCreatedScreen extends StatelessWidget {
                               ),
                            ButtonForm(text: "continue_to_home".tr, color: AppColors.secondary,
                            onPressed: () => {
-                            controller.getAccountCreated()
+                            Get.offAllNamed(AppRoute.home)
                            },
                            )
                             ])));

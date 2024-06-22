@@ -23,15 +23,15 @@ class SubjectsEduScreen extends StatelessWidget {
             //  bottomNavigationBar: AppButtomNavBar(),
             body: Container(
                 padding: const EdgeInsets.all(20),
-                child:  Column(
+                child:  GetBuilder(
+                                init: controller,
+                                builder: (_) =>  Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CreateWeorksheetTitle(text: "select_subject".tr),
                    
                                       Expanded(
-                              child:  GetBuilder(
-                                init: controller,
-                                builder: (_) =>  controller.isLoading.value 
+                              child:   controller.isLoading.value 
                                           ? SubjectShimmer() : GridView.count(
                                         crossAxisCount: 2,
                                         children: List.generate(
@@ -55,7 +55,7 @@ class SubjectsEduScreen extends StatelessWidget {
                                         }),
                                       ),
                               
-                            )),
+                            ),
                             
                             ButtonForm(
                                text: "continue".tr,
@@ -68,6 +68,6 @@ class SubjectsEduScreen extends StatelessWidget {
                                           : null
                                     }),
                           ],
-                        )));
+                        ))));
   }
 }

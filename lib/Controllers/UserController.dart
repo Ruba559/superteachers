@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -20,8 +19,8 @@ class UserController extends GetxController {
     authed = await boxClient.getAuthState();
     if (authed) {
       MyApp.user = await boxClient.getAuthedUser();
-     
     }
+    print(MyApp.user!.image);
   }
 
   Future<void> saveAuthState(User user) async {

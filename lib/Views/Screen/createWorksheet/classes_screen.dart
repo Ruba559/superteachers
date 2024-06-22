@@ -24,15 +24,15 @@ class ClassesScreen extends StatelessWidget {
             //  bottomNavigationBar: AppButtomNavBar(),
             body: Container(
                 padding: const EdgeInsets.all(20),
-                child: Column(
+                child: GetBuilder(
+                                init: controller,
+                                builder: (_) =>   Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CreateWeorksheetTitle(text: "select_class".tr),
                            
                                    Expanded(
-                                      child:  GetBuilder(
-                                init: controller,
-                                builder: (_) =>  controller.isLoading.value 
+                                      child: controller.isLoading.value 
                                           ? ClassShimmer() : GridView.count(
                                       crossAxisCount: 2,
                                       children: List.generate(
@@ -50,7 +50,7 @@ class ClassesScreen extends StatelessWidget {
                                           },
                                         );
                                       }),
-                                    ))),
+                                    )),
                             
                             ButtonForm(
                                 text: "continue".tr,
@@ -63,6 +63,6 @@ class ClassesScreen extends StatelessWidget {
                                           : null
                                     }),
                           ],
-                        )));
+                        ))));
   }
 }

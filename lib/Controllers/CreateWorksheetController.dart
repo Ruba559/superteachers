@@ -71,6 +71,7 @@ class CreateWorksheetController extends GetxController {
 
   setSemester(value) {
     semester = value;
+    print(value);
     update();
   }
 
