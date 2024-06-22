@@ -17,7 +17,7 @@ import '../../Widgets/label_form.dart';
 
 class ProfileScreen extends StatelessWidget {
    ProfileScreen({super.key});
-    ProfileController controller = Get.put(ProfileController());
+  final  ProfileController controller = Get.put(ProfileController());
   @override
   Widget build(BuildContext context) {
    
@@ -68,7 +68,7 @@ class ProfileScreen extends StatelessWidget {
                                                     controller.image!,
                                                     fit: BoxFit.contain,
                                                   )
-                                                : MyApp.user != null
+                                                : MyApp.user!.image != ''
                                                     ? Image.network(
                                                         MyApp.user!.image,
                                                         fit: BoxFit.contain,

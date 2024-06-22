@@ -57,7 +57,6 @@ class ProfileController extends GetxController {
         isLoading.value = false;
         MyApp.user = user;
         await boxClient.setUser(user!);
-
         update();
         SnackBars.showSuccess('profile_updated'.tr);
       }
