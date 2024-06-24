@@ -12,7 +12,7 @@ import '../shimmer/semesters_shimmer.dart';
 
 class SemestersScreen extends StatelessWidget {
   SemestersScreen({super.key});
-  final CreateWorksheetController controller =
+   CreateWorksheetController controller =
       Get.put(CreateWorksheetController());
 
   @override
@@ -20,7 +20,7 @@ class SemestersScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppAppBarCreateWorksheet(
           text: "create_worksheet".tr,
-          onPressed: () => {Get.offAllNamed(AppRoute.home)},
+          onPressed: () => {Get.offNamed(AppRoute.home)},
         ),
         drawer: AppDrawer(),
         //  bottomNavigationBar: AppButtomNavBar(),
@@ -28,6 +28,7 @@ class SemestersScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             child: GetBuilder(
                 init: controller,
+              
                 builder: (_) => Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

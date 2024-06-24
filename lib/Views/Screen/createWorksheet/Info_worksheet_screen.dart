@@ -17,11 +17,11 @@ import '../../Widgets/layouts/appbar_create_worksheet.dart';
 import '../../Widgets/layouts/appdrawar.dart';
 
 class InfoWorksheetScreen extends StatelessWidget {
-  const InfoWorksheetScreen({super.key});
-
+   InfoWorksheetScreen({super.key});
+ CreateWorksheetController controller = Get.find();
   @override
   Widget build(BuildContext context) {
-    CreateWorksheetController controller = Get.find();
+   
     return Scaffold(
         appBar: AppAppBarCreateWorksheet(
             text: "create_worksheet".tr,

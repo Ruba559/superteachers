@@ -20,7 +20,7 @@ class UserController extends GetxController {
     if (authed) {
       MyApp.user = await boxClient.getAuthedUser();
     }
-    print(MyApp.user!.image);
+ 
   }
 
   Future<void> saveAuthState(User user) async {

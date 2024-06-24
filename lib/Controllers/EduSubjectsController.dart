@@ -39,6 +39,15 @@ class EduSubjectsController extends GetxController {
     super.onInit();
   }
 
+  
+  @override
+  void onClose() {
+    semester = 0;
+    classe = 0;
+    subject = 0;
+    super.onClose();
+  }
+
   getClasses() async {
     isLoading.value = true;
     classes = await classRepo.getClasses();

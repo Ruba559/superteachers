@@ -11,14 +11,14 @@ import '../../Widgets/layouts/appdrawar.dart';
 
 class CreateCertificateScreen extends StatelessWidget {
   CreateCertificateScreen({super.key});
- final CreateCertificateController controller =
+  CreateCertificateController controller =
       Get.put(CreateCertificateController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppAppBarCreateWorksheet(
           text: "create_certificate".tr,
-          onPressed: () => {Get.offAllNamed(AppRoute.home) },
+          onPressed: () => {Get.offNamed(AppRoute.home) },
         ),
         drawer: AppDrawer(),
         body: Container(

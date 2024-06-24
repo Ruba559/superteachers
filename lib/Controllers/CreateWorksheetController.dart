@@ -50,8 +50,18 @@ class CreateWorksheetController extends GetxController {
     isLoading.value = false;
 
     update();
-
+    print('init');
     super.onInit();
+  }
+
+  @override
+  void onClose() {
+    print('close');
+    semester = 0;
+    classe = 0;
+    subject = 0;
+    worksheet = 0;
+    super.onClose();
   }
 
   getClasses() async {

@@ -16,7 +16,7 @@ class DesignsScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppAppBarCreateWorksheet(
           text: "create_certificate".tr,
-          onPressed: () => {Get.offAllNamed(AppRoute.home)},
+          onPressed: () => {},
         ),
         drawer: AppDrawer(),
         body: Container(

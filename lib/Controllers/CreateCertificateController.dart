@@ -48,9 +48,19 @@ class CreateCertificateController extends GetxController {
   BoxStorageName boxStorageName = BoxStorageName();
 
   Future<void> onInit() async {
-     certificates = await certificateRepo.getCertificate();
+    certificates = await certificateRepo.getCertificate();
     certificateType = certificates.first;
+    print('init c');
     super.onInit();
+  }
+
+  @override
+  void onClose() {
+    print('close c');
+    certificateType = null;
+    logo_id = 0;
+    update();
+    super.onClose();
   }
 
   getNewCreateCertificate() async {

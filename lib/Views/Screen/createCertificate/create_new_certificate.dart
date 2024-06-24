@@ -13,8 +13,7 @@ import '../../Widgets/layouts/appdrawar.dart';
 
 class CreateNewCertificateScreen extends StatelessWidget {
   CreateNewCertificateScreen({super.key});
- final CreateCertificateController controller =
-      Get.put(CreateCertificateController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

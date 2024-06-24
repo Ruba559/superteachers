@@ -11,11 +11,12 @@ import '../../Widgets/layouts/appdrawar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class WorksheetCreatedScreen extends StatelessWidget {
-  const WorksheetCreatedScreen({super.key});
+   WorksheetCreatedScreen({super.key});
+    CreateWorksheetController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
-    CreateWorksheetController controller = Get.find();
+  
     return Scaffold(
         appBar: AppAppBarCreateWorksheet(
             text: "create_worksheet".tr,

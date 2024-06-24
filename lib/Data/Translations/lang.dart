@@ -92,6 +92,8 @@ class Lang implements Translations {
           "certificates": "الشهادات",
           "profile_updated": "تم تعديل الملف الشخصي",
           "data_does_not_match": "البيانات غير متطابقة",
+          'cant_be_less_than': 'لا يمكن ان يكون اقل من',
+          "cant_be_larger_than": 'لا يمكن ان يكون اكثر من',
         },
         "en": {
           "home": " Home",
@@ -184,6 +186,8 @@ class Lang implements Translations {
           "certificates": "Certificates",
           "profile_updated": "Profile updated",
           "data_does_not_match": "Data does not match",
+          'cant_be_less_than': "Can't  be less than",
+          "cant_be_larger_than": "Can't  be larger than",
         },
       };
 }

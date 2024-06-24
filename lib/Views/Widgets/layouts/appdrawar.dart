@@ -47,7 +47,7 @@ final UserController userController = Get.find();
               ),
             ),
             onTap: () {
-              Get.offAllNamed(AppRoute.home);
+              Get.toNamed(AppRoute.home);
             },
           ),
           ListTile(

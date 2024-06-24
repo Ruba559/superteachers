@@ -10,11 +10,11 @@ import '../../Widgets/subject_box.dart';
 import '../shimmer/subject_shimmer.dart';
 
 class SubjectsScreen extends StatelessWidget {
-  const SubjectsScreen({super.key});
-
+   SubjectsScreen({super.key});
+  CreateWorksheetController controller = Get.find();
   @override
   Widget build(BuildContext context) {
-    CreateWorksheetController controller = Get.find();
+  
     return  Scaffold(
             appBar: AppAppBarCreateWorksheet(
                 text: "create_worksheet".tr,

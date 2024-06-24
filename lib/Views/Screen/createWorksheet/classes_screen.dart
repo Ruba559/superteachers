@@ -10,11 +10,11 @@ import '../../Widgets/layouts/appdrawar.dart';
 import '../shimmer/class_shimmer.dart';
 
 class ClassesScreen extends StatelessWidget {
-  const ClassesScreen({super.key});
-
+   ClassesScreen({super.key});
+ CreateWorksheetController controller = Get.find();
   @override
   Widget build(BuildContext context) {
-    CreateWorksheetController controller = Get.find();
+   
     return Scaffold(
             appBar: AppAppBarCreateWorksheet(
               text: "create_worksheet".tr,

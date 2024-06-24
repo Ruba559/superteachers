@@ -10,7 +10,8 @@ import '../Widgets/layouts/appdrawar.dart';
 
 class HomeScreen extends StatelessWidget {
    HomeScreen({super.key});
- final HomeController controller = Get.put(HomeController());
+ final HomeController controller = Get.find();
+ 
   @override
   Widget build(BuildContext context) {
   
@@ -35,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                         ChoicesBox(
                           text: "create_worksheet".tr,
                           image: 'assets/images/worksheet.png',
-                          onPressed: () => controller.getSemesters(),
+                          onPressed: () =>  controller.getSemesters(),
                         ),
                         ChoicesBox(
                           text: "create_certificate".tr,

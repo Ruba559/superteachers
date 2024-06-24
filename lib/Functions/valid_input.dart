@@ -5,11 +5,11 @@ validInput(String val, int min, int max, String type , bool? require ,  String? 
     return "cant_be_empty".tr;
   } 
 
-  if (type == "username") {
-    if (!GetUtils.isUsername(val)) {
-      return "not valid username";
-    }
-  }
+  // if (type == "username") {
+  //   if (!GetUtils.isUsername(val)) {
+  //     return "not valid username";
+  //   }
+  // }
   if (type == "email") {
     if (!GetUtils.isEmail(val.trim())) {
       return "not_valid_email".tr;
@@ -23,19 +23,13 @@ validInput(String val, int min, int max, String type , bool? require ,  String? 
   }
 
 
-  if (type == "phone") {
-    if (!GetUtils.isPhoneNumber(val)) {
-      return "not valid phone";
-    }
-  }
-
 
 
   if (require == true && val.length < min) {
-    return "can't be less than $min";
+    return "${'cant_be_less_than'.tr} $min";
   }
 
   if (require == true && val.length > max) {
-    return "can't be larger than $max";
+    return "${'cant_be_larger_than'.tr} $max";
   }
 }

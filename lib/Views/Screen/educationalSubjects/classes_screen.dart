@@ -19,7 +19,7 @@ class ClassesEduScreen extends StatelessWidget {
     return Scaffold(
             appBar: AppAppBarCreateWorksheet(
               text: "educational_subjects".tr,
-              onPressed: () => {Get.offAllNamed(AppRoute.home)},
+              onPressed: () => {Get.offNamed(AppRoute.home)},
             ),
             drawer: AppDrawer(),
             //  bottomNavigationBar: AppButtomNavBar(),

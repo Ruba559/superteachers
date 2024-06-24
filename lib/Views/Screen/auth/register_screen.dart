@@ -31,7 +31,7 @@ class RegisterScreen extends StatelessWidget {
                         LabelForm(text: 'الاسم'),
                         InputForm(
                           valid: (val) {
-                            return validInput(val!, 2, 11, "username", true ,  null);
+                            return validInput(val!, 3, 20, "username", true ,  null);
                           },
                           mycontroller: controller.name,
                         ),
